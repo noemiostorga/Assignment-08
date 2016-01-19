@@ -32,7 +32,7 @@ console.log getTotalPrice and expect it to give you items.reduce's parameter  */
 //leave getTotalPrice empty because it's being given an 'unknown' product
 
 
-function getTotalPrice () {
+var getTotalPrice = function () {
 	var TotalPrice = items.reduce(function (a, b){	
 		if(typeof a === "number"){
 			return a + b.price;
@@ -40,12 +40,12 @@ function getTotalPrice () {
 			return (a.price + b.price);
 		}
 	});
-	return "The average price is "+ TotalPrice;
+	return "The average price is $"+ TotalPrice;
 }
 
 getTotalPrice();
 
-
+$("#f-1").html(getTotalPrice);
 
 
 
@@ -64,24 +64,25 @@ getTotalPrice();
 
 
 
-function betweenPrice (){
 
-	var betweenPrice = items.filter(function(price) {
+
+var betweenPrice = items.filter(function(price) {
 		if (items.price > 14 && items.price < 18){
 			return true;
 		}else {
 			return false;
 		}	
-	})
+	});
 
-		items.map(function(item){
-			return items.title;
-		})
-return betweenPrice;
-}
+var bewteenArr = items.map(function(item){
+			return {
+			title:item.title,
+			price:item.price
+		}
+});
 
 
-betweenPrice(items);
+$("#f-2").html(betweenPrice(bewteenArr));
 
 /* shows empty array in console */
 
@@ -98,14 +99,15 @@ Display it's name and price.
 
 
 
-var itemsCurrency = items.forEach (function (items){
+var itemsCurrency = items.map(function (items){
 		if (items.currency === 'GBP'){
-			return; 
+			return true; 
 		}else{
 			return false;
 		}
 });
 
+$("#f-3").html(itemsCurrency);
 
 
 
@@ -117,7 +119,7 @@ var itemsCurrency = items.forEach (function (items){
 //make for each loop that'll go through each value in array
 //make items.materials equals wood return wood 
 
-var testWood = items.filter(function(){
+/*var testWood = items.filter(function(){
 	var wood
 		if (false){
 			return false;
@@ -129,7 +131,7 @@ var testWood = items.filter(function(){
 		}
 
 });
-testWood();
+testWood();*/
 
 ///////////////////////////////////////////////////////////////////
 
@@ -137,7 +139,7 @@ testWood();
 // Display the name, number of items and the items it is made of.    
 //make function that'll run threw the each array and if true truns true
 
-var testMaterial = items.forEach(function(test){
+/*var testMaterial = items.forEach(function(test){
 
 	for(var i=0; i<materials.length; i++)
 
@@ -149,7 +151,7 @@ var testMaterial = items.forEach(function(test){
 		}
 		
 	});
-console.log(testMaterial);
+console.log(testMaterial); */
 
 //////////////////////////////////////////////////////////////////////
 
@@ -161,9 +163,9 @@ console.log(testMaterial);
 //if false it'll filter
 //if true return item.reduce number 
 
-var itemSell = items.filter(item){
+/*var itemSell = items.filter(item){
 	var is 
-}
+}*/
 
 
 
